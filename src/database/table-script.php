@@ -29,3 +29,22 @@ $tableQuery = "CREATE TABLE cars (
 );";
 
 $db->exec($tableQuery);
+
+$now = date('Y-m-d\TH:i:s');
+
+$inserCar1 = "INSERT INTO cars 
+               (model, year, color, price, license_plate, created_at) 
+              VALUES 
+               ('Fiat Punto', 2012, 'Prata', 25000, 'KLV-J410', '{$now}')
+            ";
+
+$inserCar2 = "INSERT INTO cars 
+               (model, year, color, price, license_plate, created_at) 
+              VALUES 
+               ('Renault Sandero', 2009, 'Marrom', 22000, 'GTU-F942', '{$now}')
+            ";
+
+$db->exec($inserCar1);
+$db->exec($inserCar2);
+
+exit('Cool, table "cars" created and two cars were inserted :)');
